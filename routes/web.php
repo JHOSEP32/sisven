@@ -11,12 +11,16 @@
 |
 */
 
+//Auth routes
+Auth::routes();
+
 Route::get('/', function () {
     return redirect('login');
 })->middleware('guest');
 
-//Auth routes
-Auth::routes();
+Route::get('/register', function () {
+    return redirect('/home');
+});
 
 //Home
 Route::get('/home', 'HomeController@index');
@@ -26,6 +30,7 @@ Route::get('/home', 'HomeController@index');
 Route::group(['middleware' => 'auth'], function () {
     Route::resource('user', 'Users');
     Route::resource('category', 'Categories');
+    Route::resource('product', 'Products');
     //User
     Route::group(['prefix' => 'profile'], function () {
         Route::get('/', 'Users@profile');

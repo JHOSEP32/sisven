@@ -3,6 +3,7 @@
 <head>
     <title>Ooops!</title>
     <meta name="theme-color" content="#367fa9">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.png">
     <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">

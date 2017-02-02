@@ -239,9 +239,9 @@
                     </a>
                     <ul class="treeview-menu">
                         <li>
-                            <a href="#"><span class="fa fa-circle-o"></span>Añadir Producto</a>
+                            <a href="/product/create"><span class="fa fa-circle-o"></span>Añadir Producto</a>
                         </li>
-                        <li><a href="#"><span class="fa fa-circle-o"></span>Listar Productos</a></li>
+                        <li><a href="/product"><span class="fa fa-circle-o"></span>Listar Productos</a></li>
                     </ul>
                 </li>
                 <li class="treeview">
