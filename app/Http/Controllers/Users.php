@@ -186,6 +186,9 @@ class Users extends Controller
 
     public function updateProfilePhoto(Request $request, $id)
     {
+        $this->validate($request, [
+            'imagen' => 'required|file'
+        ]);
         if ($request->file('imagen')) {
             $img = $request->file('imagen');
             $imgRoute = time() . '_' . $img->getClientOriginalName();
@@ -205,7 +208,9 @@ class Users extends Controller
     public function updatePassword(Request $request, $id)
     {
         $this->validate($request, [
-            'contrasena' => 'confirmed',
+            'contrasena_actual' => 'required',
+            'contrasena' => 'required|confirmed',
+            'contrasena_confirmation' => 'required',
         ]);
         $user = User::find($id);
         $oldPassword = $user->password;

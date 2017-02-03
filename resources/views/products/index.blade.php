@@ -63,16 +63,16 @@
                                         <td>{{ $prod->price }}</td>
                                         <td>{{ $prod->stock }}</td>
                                         <td>
-                                            <a href="/category/{{ $prod->id }}" class="btn btn-xs btn-default"
+                                            <a href="/product/{{ $prod->id }}" class="btn btn-xs btn-default"
                                                data-toggle="tooltip" data-placement="top" title="Ver">
                                                 <span class="fa fa-eye"></span>
                                             </a>
-                                            <a href="/category/{{ $prod->id }}/edit" class="btn btn-xs btn-primary"
+                                            <a href="/product/{{ $prod->id }}/edit" class="btn btn-xs btn-primary"
                                                data-toggle="tooltip" data-placement="top" title="Editar">
                                                 <span class="fa fa-pencil"></span>
                                             </a>
                                             <form class="display_inline_block"
-                                                  action="{{ route('category.destroy', $prod->id) }}"
+                                                  action="{{ route('product.destroy', $prod->id) }}"
                                                   method="POST">
                                                 {{ method_field('DELETE') }}
                                                 {{ csrf_field() }}

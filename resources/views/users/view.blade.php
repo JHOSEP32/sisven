@@ -20,7 +20,7 @@
     <section class="content">
         <div class="row">
             <div class="col-sm-12 col-lg-6 col-md-6">
-                <div class="box box-danger">
+                <div class="box box-primary">
                     <div class="box-header with-border">
                         <h3 class="box-title">Usuario #{{ $user->id }}</h3>
                     </div>

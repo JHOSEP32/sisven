@@ -129,9 +129,10 @@
                                     {{ method_field('PUT') }}
                                     {{ csrf_field() }}
                                     <input id="userImg" type="text" value="{{ $user->img_url }}" hidden>
-                                    <div class="form-group">
+                                    <div class="form-group {{ $errors->has('imagen') ? ' has-error' : '' }}">
                                         <label for="imagen">Imagen:</label>
                                         <input id="imagen" name="imagen" type="file">
+                                        <span class="help-block">{{ $errors->first('imagen') }}</span>
                                     </div>
                                     <button type="submit" class="btn btn-primary"><span
                                                 class="fa fa-save"></span> Guardar
@@ -162,20 +163,22 @@
                                         <label for="contrasena_actual">Contraseña actual:</label>
                                         <input type="password" class="form-control" id="contrasena_actual"
                                                placeholder="Contraseña actual" name="contrasena_actual"
-                                               value="{{ old('contrasena_actual') }}" required>
+                                               value="{{ old('contrasena_actual') }}">
+                                        <span class="help-block">{{ $errors->first('contrasena_actual') }}</span>
                                     </div>
                                     <div class="form-group {{ $errors->has('contrasena') ? ' has-error' : '' }}">
                                         <label for="contrasena">Contraseña nueva:</label>
                                         <input type="password" class="form-control" id="contrasena"
                                                placeholder="Contraseña nueva" name="contrasena"
-                                               value="{{ old('contrasena') }}" required>
+                                               value="{{ old('contrasena') }}">
                                         <span class="help-block">{{ $errors->first('contrasena') }}</span>
                                     </div>
                                     <div class="form-group {{ $errors->has('contrasena_confirmation') ? ' has-error' : '' }}">
                                         <label for="contrasena_confirmation">Confirmar Contraseña:</label>
                                         <input type="password" class="form-control" id="contrasena_confirmation"
                                                placeholder="Confirmar Contraseña" name="contrasena_confirmation"
-                                               value="{{ old('contrasena_confirmation') }}" required>
+                                               value="{{ old('contrasena_confirmation') }}">
+                                        <span class="help-block">{{ $errors->first('contrasena_confirmation') }}</span>
                                     </div>
                                     <button type="submit" class="btn btn-primary"><span
                                                 class="fa fa-save"></span> Guardar

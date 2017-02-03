@@ -24,17 +24,9 @@
                         <h3 class="box-title">Añadir Usuario</h3>
                     </div>
                     <!-- /.box-header -->
-                    @if (count($errors) > 0)
-                        <div class="error-box">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                @endif
-                <!-- form start -->
-                    <form id="create-user-form" role="form" action="{{ route('user.store') }}" method="post" enctype="multipart/form-data">
+                    <!-- form start -->
+                    <form id="create-user-form" role="form" action="{{ route('user.store') }}" method="post"
+                          enctype="multipart/form-data">
                         {{ csrf_field() }}
                         <div class="box-body">
                             <div class="form-group {{ $errors->has('identificacion') ? ' has-error' : '' }}">
@@ -42,45 +34,57 @@
                                 <input type="text" class="form-control" id="identificacion"
                                        placeholder="Identificación" name="identificacion"
                                        value="{{ old('identificacion') }}">
+                                <span class="help-block">{{ $errors->first('identificacion') }}</span>
                             </div>
                             <div class="form-group {{ $errors->has('nombre') ? ' has-error' : '' }}">
                                 <label for="nombre">Nombre:</label>
                                 <input type="text" class="form-control" id="nombre"
                                        placeholder="Nombre" name="nombre" value="{{ old('nombre') }}">
+                                <span class="help-block">{{ $errors->first('nombre') }}</span>
                             </div>
                             <div class="form-group {{ $errors->has('apellidos') ? ' has-error' : '' }}">
                                 <label for="apellidos">Apellidos:</label>
                                 <input type="text" class="form-control" id="apellidos"
                                        placeholder="Apellidos" name="apellidos" value="{{ old('apellidos') }}">
+                                <span class="help-block">{{ $errors->first('apellidos') }}</span>
                             </div>
                             <div class="form-group {{ $errors->has('celular') ? ' has-error' : '' }}">
                                 <label for="celular">Celular:</label>
                                 <input type="tel" class="form-control" id="celular"
                                        placeholder="Celular" name="celular" value="{{ old('celular') }}">
+                                <span class="help-block">{{ $errors->first('celular') }}</span>
                             </div>
                             <div class="form-group {{ $errors->has('email') ? ' has-error' : '' }}">
                                 <label for="email">Email:</label>
                                 <input type="email" class="form-control" id="email"
                                        placeholder="Email" name="email" value="{{ old('email') }}">
+                                <span class="help-block">{{ $errors->first('email') }}</span>
                             </div>
                             <div class="form-group {{ $errors->has('contrasena') ? ' has-error' : '' }}">
                                 <label for="contrasena">Contraseña:</label>
                                 <input type="password" class="form-control" id="contrasena"
                                        placeholder="Contraseña" name="contrasena" value="{{ old('contrasena') }}">
+                                <span class="help-block">{{ $errors->first('contrasena') }}</span>
                             </div>
                             <div class="form-group {{ $errors->has('contrasena_confirmation') ? ' has-error' : '' }}">
                                 <label for="contrasena_confirmation">Confirmar Contraseña:</label>
                                 <input type="password" class="form-control" id="contrasena_confirmation"
                                        placeholder="Confirmar Contraseña" name="contrasena_confirmation"
                                        value="{{ old('contrasena_confirmation') }}">
+                                <span class="help-block">{{ $errors->first('contrasena_confirmation') }}</span>
                             </div>
                             <div class="form-group {{ $errors->has('estado') ? ' has-error' : '' }}">
                                 <label for="estado">Estado:</label>
                                 <select id="estado" name="estado" class="form-control">
                                     <option value="">Seleccione</option>
-                                    <option value="Admin">Administrador</option>
-                                    <option value="Estandar">Estándar</option>
+                                    <option value="Admin" {{ old('estado') == 'Admin' ? 'selected' : '' }}>
+                                        Administrador
+                                    </option>
+                                    <option value="Estandar" {{ old('estado') == 'Estandar' ? 'selected' : '' }}>
+                                        Estándar
+                                    </option>
                                 </select>
+                                <span class="help-block">{{ $errors->first('estado') }}</span>
                             </div>
                             <div class="form-group">
                                 <label for="imagen">Imagen:</label>
@@ -88,7 +92,8 @@
                             </div>
                             <div class="form-group">
                                 <label>Vista previa:</label>
-                                <img src="/img/user_profile.png" alt="" class="preview-img img-responsive img-circle img-bordered">
+                                <img src="/img/user_profile.png" alt=""
+                                     class="preview-img img-responsive img-circle img-bordered">
                             </div>
                         </div>
                         <!-- /.box-body -->
