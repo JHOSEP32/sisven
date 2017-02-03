@@ -2,12 +2,12 @@
 @section('content')
     <section class="content-header">
         <h1>
-            Productos
+            Clientes
             {{--<small>Descripcion</small>--}}
         </h1>
         <ol class="breadcrumb">
             <li><a href="/"><i class="fa fa-home"></i> Inicio</a></li>
-            <li class="active"><i class="fa fa-cubes"></i> Productos</li>
+            <li class="active"><i class="fa fa-users"></i> Clientes</li>
         </ol>
         <div class="alert-container">
             @if (session()->has('msj'))
@@ -30,49 +30,45 @@
                 <!-- Your Page Content Here -->
                 <div class="box box-primary">
                     <div class="box-header">
-                        <h3 class="box-title">Lista de Productos</h3>
+                        <h3 class="box-title">Lista de Clientes</h3>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
                         <div class="button-container">
-                            <a href="/product/create" class="btn btn-primary"><span class="fa fa-plus-circle"></span>
+                            <a href="/client/create" class="btn btn-primary"><span class="fa fa-plus-circle"></span>
                                 Añadir</a>
                         </div>
-                        @if (isset($products) && count($products) > 0)
+                        @if (isset($clients) && $clients->count() > 0)
                             <table class="dtable table table-bordered table-hover table-striped">
                                 <thead>
                                 <tr>
                                     <th>ID</th>
+                                    <th>Identificacion</th>
                                     <th>Nombre</th>
-                                    <th>Categoría</th>
-                                    <th>Proveedor</th>
-                                    <th>Descripción</th>
-                                    <th>Precio</th>
-                                    <th>Stock</th>
+                                    <th>Dirección</th>
+                                    <th>Celular</th>
                                     <th>Acciones</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                @foreach($products as $prod)
+                                @foreach($clients as $cli)
                                     <tr>
-                                        <td>{{ $prod->id }}</td>
-                                        <td>{{ $prod->name }}</td>
-                                        <td>{{ $prod->cname }}</td>
-                                        <td>{{ $prod->pvname }}</td>
-                                        <td>{{ \App\Http\Controllers\HelperFunctions::shortText($prod->description) }}</td>
-                                        <td>{{ $prod->price }}</td>
-                                        <td>{{ $prod->stock }}</td>
+                                        <td>{{ $cli->id }}</td>
+                                        <td>{{ $cli->dni == NULL ? '---' : $cli->dni }}</td>
+                                        <td>{{ $cli->name . ' ' . $cli->lastname }}</td>
+                                        <td>{{ $cli->address == NULL ? '---' : $cli->address }}</td>
+                                        <td>{{ $cli->phone == NULL ? '---' : $cli->phone }}</td>
                                         <td>
-                                            <a href="/product/{{ $prod->id }}" class="btn btn-xs btn-default"
+                                            <a href="/client/{{ $cli->id }}" class="btn btn-xs btn-default"
                                                data-toggle="tooltip" data-placement="top" title="Ver">
                                                 <span class="fa fa-eye"></span>
                                             </a>
-                                            <a href="/product/{{ $prod->id }}/edit" class="btn btn-xs btn-primary"
+                                            <a href="/client/{{ $cli->id }}/edit" class="btn btn-xs btn-primary"
                                                data-toggle="tooltip" data-placement="top" title="Editar">
                                                 <span class="fa fa-pencil"></span>
                                             </a>
                                             <form class="display_inline_block"
-                                                  action="{{ route('product.destroy', $prod->id) }}"
+                                                  action="{{ route('client.destroy', $cli->id) }}"
                                                   method="POST">
                                                 {{ method_field('DELETE') }}
                                                 {{ csrf_field() }}

@@ -31,6 +31,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('user', 'Users');
     Route::resource('category', 'Categories');
     Route::resource('product', 'Products');
+    Route::resource('client', 'Clients');
+    Route::resource('provider', 'Providers');
     //User
     Route::group(['prefix' => 'profile'], function () {
         Route::get('/', 'Users@profile');

@@ -261,9 +261,9 @@
                     </a>
                     <ul class="treeview-menu">
                         <li>
-                            <a href="#"><span class="fa fa-circle-o"></span>Añadir Cliente</a>
+                            <a href="/client/create"><span class="fa fa-circle-o"></span>Añadir Cliente</a>
                         </li>
-                        <li><a href="#"><span class="fa fa-circle-o"></span>Listar Clientes</a></li>
+                        <li><a href="/client"><span class="fa fa-circle-o"></span>Listar Clientes</a></li>
                     </ul>
                 </li>
                 <li class="treeview">
@@ -272,9 +272,9 @@
                     </a>
                     <ul class="treeview-menu">
                         <li>
-                            <a href="#"><span class="fa fa-circle-o"></span>Añadir Proveedor</a>
+                            <a href="/provider/create"><span class="fa fa-circle-o"></span>Añadir Proveedor</a>
                         </li>
-                        <li><a href="#"><span class="fa fa-circle-o"></span>Listar Proveedores</a></li>
+                        <li><a href="/provider"><span class="fa fa-circle-o"></span>Listar Proveedores</a></li>
                     </ul>
                 </li>
                 <li class="treeview">

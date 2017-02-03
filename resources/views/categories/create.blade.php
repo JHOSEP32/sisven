@@ -24,16 +24,7 @@
                         <h3 class="box-title">Añadir Categoría</h3>
                     </div>
                     <!-- /.box-header -->
-                    @if (count($errors) > 0)
-                        <div class="error-box">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                @endif
-                <!-- form start -->
+                    <!-- form start -->
                     <form role="form" action="{{ route('category.store') }}" method="post">
                         {{ csrf_field() }}
                         <div class="box-body">
@@ -41,6 +32,7 @@
                                 <label for="nombre">Nombre:</label>
                                 <input type="text" class="form-control" id="nombre"
                                        placeholder="Nombre" name="nombre" value="{{ old('nombre') }}">
+                                <span class="help-block">{{ $errors->first('nombre') }}</span>
                             </div>
                         </div>
                         <!-- /.box-body -->
