@@ -1,5 +1,13 @@
 /*Custom styles*/
 
+textarea {
+    resize: none;
+}
+
+.input-table {
+    max-width: 50px;
+}
+
 .error-box {
     background-color: #dd4b39;
     color: #FFFFFF;

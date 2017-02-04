@@ -228,9 +228,9 @@
                     </a>
                     <ul class="treeview-menu">
                         <li>
-                            <a href="#"><span class="fa fa-circle-o"></span>Añadir Venta</a>
+                            <a href="/sale/create"><span class="fa fa-circle-o"></span>Añadir Venta</a>
                         </li>
-                        <li><a href="#"><span class="fa fa-circle-o"></span>Listar Ventas</a></li>
+                        <li><a href="/sale"><span class="fa fa-circle-o"></span>Listar Ventas</a></li>
                     </ul>
                 </li>
                 <li class="treeview">
@@ -425,5 +425,6 @@
 {{--<script src="/template/plugins/datatables/dataTables.bootstrap.min.js"></script>--}}
 <!-- Custom Scripts -->
 <script src="/js/main.js"></script>
+<script src="/js/data.js"></script>
 </body>
 </html>

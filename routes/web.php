@@ -33,6 +33,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::resource('product', 'Products');
     Route::resource('client', 'Clients');
     Route::resource('provider', 'Providers');
+    Route::resource('sale', 'Sales');
     //User
     Route::group(['prefix' => 'profile'], function () {
         Route::get('/', 'Users@profile');
@@ -43,6 +44,17 @@ Route::group(['middleware' => 'auth'], function () {
     //Messages
     Route::resource('mailbox', 'Messages');
     Route::put('/mailbox/trash/{id}', 'Messages@moveToTrash')->name('mailbox.moveToTrash');
+});
+
+//Ajax routes
+
+Route::group(['prefix' => 'ajax', 'middleware' => 'auth'], function () {
+    Route::group(['prefix' => 'client'], function () {
+        Route::get('/', 'AjaxData@getClient');
+    });
+    Route::group(['prefix' => 'product'], function () {
+        Route::get('/', 'AjaxData@getProduct');
+    });
 });
 
 //Test Routes
