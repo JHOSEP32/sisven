@@ -50,10 +50,18 @@ Route::group(['middleware' => 'auth'], function () {
 
 Route::group(['prefix' => 'ajax', 'middleware' => 'auth'], function () {
     Route::group(['prefix' => 'client'], function () {
-        Route::get('/', 'AjaxData@getClient');
+        Route::post('/get', 'AjaxData@getClient');
     });
     Route::group(['prefix' => 'product'], function () {
-        Route::get('/', 'AjaxData@getProduct');
+        Route::post('/get', 'AjaxData@getProduct');
+        Route::post('/create', 'AjaxData@addProduct');
+    });
+    Route::group(['prefix' => 'sale'], function () {
+        Route::post('/create', 'AjaxData@createSale');
+        Route::post('/details', 'AjaxData@getSaleDetails');
+        Route::post('/details/delete', 'AjaxData@deleteAllDetails');
+        Route::post('/detail/delete', 'AjaxData@deleteSaleDetail');
+        Route::post('/update/client', 'AjaxData@updateSaleClient');
     });
 });
 
